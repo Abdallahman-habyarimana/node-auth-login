@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const config = require('config');
+const color = require('colors')
 
 module.exports = function() {
   const db = config.get('db');
@@ -7,5 +8,5 @@ module.exports = function() {
       useNewUrlParser: true,
       useUnifiedTopology: true
   })
-    .then(() => console.log(`Connected to ${db}...`));
+    .then(() => console.log(`Connected to ${db}...`.blue.bold));
 }
