@@ -1,0 +1,5 @@
+{
+    "jwtPrivateKey": "unsecureKey",
+    "db": "mongodb://localhost/auth-node",
+    "port": "5000"
+}
