@@ -3,8 +3,16 @@ const asyncHandler = require('express-async-handler')
 const _ = require('lodash')
 const bcrypt = require('bcryptjs');
 const mongoose = require("mongoose");
-const { User } = require('../models/user')
+const { User } = require('../models/user');
+const auth = require('../middleware/auth');
 const router = express.Router()
+
+// Getting the current user
+router.get('/me', auth, async (req, res) => {
+    // req.user._id comes from authentication
+    const user = await User.findById(req.user._id).select('-password');
+    res.send(user)
+})
 
 router.post('/', asyncHandler(async(req, res) => {
     
