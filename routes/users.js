@@ -14,6 +14,14 @@ router.get('/me', auth, async (req, res) => {
     res.send(user)
 })
 
+//@route POST api/profile
+//@desc Create or update user profile
+//@access Private
+router.post( "/profile", async (req, res) => {
+	const { address, location, bio } = req.body;
+    
+});
+
 router.post('/', asyncHandler(async(req, res) => {
     
     const  { name, email, password } = req.body;
